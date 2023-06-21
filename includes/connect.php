@@ -1,6 +1,6 @@
     <?php
 
-$con = mysqli_connect('localhost', 'root', '', 'mystore');
+$con = mysqli_connect('localhost', 'root', '', 'shopzenith');
 // if ($con) {
 //     echo "connection successful";
 // } else {

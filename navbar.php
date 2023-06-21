@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>mystore.com - Unleash your shopping potential</title>
+    <title>ShopZenith.com - Unleash your shopping potential</title>
     <link rel="icon" type="image/x-icon" href="assets/img/Yellow E-commerce Shop Bag Store Logo.png">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
@@ -38,7 +38,7 @@
     <!-- Navbar -->
     <div class="container-fluid p-0">
         <!-- First child -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <nav class="navbar navbar-expand-lg navbar-dark text-light bg-dark">
             <div class="container-fluid">
                 <img src="assets/img/Yellow E-commerce Shop Bag Store Logo.png" class="logo"></img>
 
@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Products</a>
@@ -62,19 +62,20 @@
                             <a class="nav-link" href="#">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>
+                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
                                     <?php cart_item(); ?>
-                                </sup>&nbsp;
-                                Cart</a>
+                                </sup>&nbsp;</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total Price : ₹ 100</a>
+                            <a class="nav-link" href="#">Total Price :
+                                <?php total_cart_price(); ?>
+                            </a>
                         </li>
 
                         <!-- d-flex means display flex which means come in horizontal row-->
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <input type="submit" value="Search" class='btn btn-outline-dark text-dark bg-light' name="search_data_product">
                         </form>
                 </div>
             </div>

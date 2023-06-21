@@ -10,7 +10,7 @@ include('functions/common_function.php');
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>ShopZenith.com - Unleash your shopping potential</title>
+    <title>mystore.com - Unleash your shopping potential</title>
     <link rel="icon" type="image/x-icon" href="img/Yellow E-commerce Shop Bag Store Logo.png">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
@@ -99,7 +99,7 @@ include('functions/common_function.php');
 
         <!-- Third Child-->
         <div class="bg-light">
-            <h3 class="text-center">ShopZenith.com</h3>
+            <h3 class="text-center">mystore.com</h3>
             <p class="text-center">Unleash Your Shopping Potential </p>
         </div>
 
@@ -108,17 +108,21 @@ include('functions/common_function.php');
             <div class="col-md-10">
                 <!-- Product -->
                 <div class="row">
+
                     <?php
-                    getproducts();
+        
+                    viewdetails();
                     get_unique_categories();
                     get_unique_brands();
+
                     ?>
+
                     <!-- row end -->
                 </div>
                 <!-- col end -->
             </div>
             <!-- SideNav -->
-            <div class="col-md-2 bg-secondary p-0">
+            <div class=" col-md-2 bg-secondary p-0">
                 <ul class="navbar-nav me-auto text-center">
                     <li class="nav-item bg-info">
                         <a href="#" class="nav-link text-light">

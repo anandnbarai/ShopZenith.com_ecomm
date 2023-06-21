@@ -84,6 +84,10 @@ include('functions/common_function.php');
             </div>
         </nav>
 
+        <!-- calling cart funtion -->
+        <?php
+        cart();
+        ?>
         <!-- Second Child/2nd Navbar -->
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">

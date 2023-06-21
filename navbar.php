@@ -62,7 +62,9 @@
                             <a class="nav-link" href="#">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup>&nbsp;
+                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>
+                                    <?php cart_item(); ?>
+                                </sup>&nbsp;
                                 Cart</a>
                         </li>
                         <li class="nav-item">

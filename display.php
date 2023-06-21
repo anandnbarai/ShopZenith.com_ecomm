@@ -66,7 +66,9 @@ include('functions/common_function.php');
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup>&nbsp;
+                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>
+                                    <?php cart_item(); ?>
+                                </sup>&nbsp;
                                 Cart</a>
                         </li>
                         <li class="nav-item">
@@ -145,7 +147,7 @@ include('functions/common_function.php');
         <!-- Footer/Last child -->
         <!-- Include footer -->
         <?php
-            include("./includes/footer.php");
+        include("./includes/footer.php");
         ?>
     </div>
 

@@ -203,20 +203,23 @@ include('functions/common_function.php');
                     <div class="d-flex mb-5">
 
                         <?php
-
                         $get_ip_add = getIPAddress();
-                        $total_price = 0;
                         $cart_query = "select * from `cart_details` where ip_address = '$get_ip_add'";
                         $result = mysqli_query($con, $cart_query);
                         $result_count = mysqli_num_rows($result);
-                        if ($result_count > 0){
-                            echo "
-                                <h4 class='px-3'>Subtotal : <strong class='text-dark'>
-                                    <?php echo '<b>&#8377;$total_price</b>'; ?></strong></h4>
-                                <a href='index.php'><button class='bg-dark text-white border-0 px-3 py-2 mx-3'>Continue Shopping
-                                </button></a>
-                                <a href='#'><button class='bg-secondary text-white border-0 p-3 py-2'>Checkout</button></a>s
-                            ";
+                        if ($result_count > 0) {
+                            echo "<h4 class='px-3'>Subtotal : <strong class='text-dark'><b>&#8377;$total_price</b></strong></h4>
+                            <input type='submit' class='bg-dark text-white border-0 p-3 px-3 py-2 border-0 mx-3' value='Continue Shopping' 
+                            name='continue_shopping'>
+                            <button class='bg-secondary text-white border-0 p-3 py-2'>
+                            <a href='checkout.php' class='text-light text-decoration-none'>Checkout</a></button>";
+                        } else {
+                            echo "<input type='submit' class='bg-dark text-white border-0 p-3 px-3 py-2 border-0 mx-3' value='Continue Shopping' 
+                                name='continue_shopping'>";
+                        }
+
+                        if (isset($_POST['continue_shopping'])) {
+                            echo "<script>window.open('index.php','_self')</script>";
                         }
                         ?>
                     </div>

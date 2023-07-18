@@ -1,3 +1,9 @@
+<?php
+
+include('../includes/connect.php');
+include('../functions/common_function.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,14 +30,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
+    <style>
+        textarea {
+            resize: none;
+        }
+    </style>
 </head>
 
-<body>
-
-    <div class="bg-light">
-        <h3 class="text-center mt-2">ShopZenith.com</h3>
-        <p class="text-center">Unleash Your Shopping Potential </p>
-    </div>
+<body style="overflow-x:hidden">
 
     <div class="container-fluid">
         <h2 class="text-center my-3">New User Registration</h2>
@@ -53,6 +59,12 @@
                     </div>
 
                     <div class="form-outline mb-3">
+                        <label for="user_contact" class="form-label">Mobile Number</label>
+                        <input type="text" id="user_contact" name="user_contact" class="form-control"
+                            placeholder="Enter Your Number" autocomplete="off" minlength="10" required="required" />
+                    </div>
+
+                    <div class="form-outline mb-3">
                         <label for="user_image" class="form-label">User Image</label>
                         <input type="file" id="user_image" name="user_image" class="form-control"
                             placeholder="Upload Your Image" required="required" />
@@ -61,29 +73,102 @@
                     <div class="form-outline mb-3">
                         <label for="user_password" class="form-label">Password</label>
                         <input type="password" id="user_password" name="user_password" class="form-control"
-                            placeholder="Enter Your Password" autocomplete="off" required="required" />
+                            placeholder="Enter Your Password" autocomplete="off" minlength="6" required="required" />
                     </div>
 
                     <div class="form-outline mb-3">
                         <label for="conf_user_password" class="form-label">Confirm Password</label>
                         <input type="password" id="conf_user_password" name="conf_user_password" class="form-control"
-                            placeholder="Confirm Your Password" autocomplete="off" required="required" />
+                            placeholder="Confirm Your Password" autocomplete="off" minlength="6" required="required" />
                     </div>
 
                     <div class="form-outline mb-3">
                         <label for="user_address" class="form-label">Address</label>
-                        <input type="text" id="user_address" name="user_address" class="form-control"
-                            placeholder="Enter Your Address" autocomplete="off" required="required" />
+                        <textarea id="user_address" name="user_address" class="form-control" autocomplete="off" rows="4"
+                            required="required">
+                        </textarea>
                     </div>
+
+                    <div>
+                        <input type="submit" class="bg-dark py-2 px-2 mb-3 text-white border-0" value="Register"
+                            name="user_register" />
+                        <p class="small fw-bold">Already have an Account? <a href="user_login.php"
+                                class="text-danger">Login Here!</a></p>
+                    </div>
+
                 </form>
             </div>
         </div>
     </div>
 
-    <?php
-    include("../includes/footer.php");
-    ?>
-    
 </body>
 
 </html>
+
+<?php
+
+if (isset($_POST['user_register'])) {
+
+    $user_username = $_POST['user_username'];
+    $user_email = $_POST['user_email'];
+    $user_contact = $_POST['user_contact'];
+    $user_password = $_POST['user_password'];
+    $hash_password = password_hash($user_password, PASSWORD_DEFAULT);
+    $conf_user_password = $_POST['conf_user_password'];
+    $user_address = $_POST['user_address'];
+    $user_image = $_FILES['user_image']['name'];
+    $user_image_tmp = $_FILES['user_image']['tmp_name'];
+    $user_ip = getIPAddress();
+
+    // select query
+
+    $select_query = "select * from `user_table` where username='$user_username'";
+    $select_query1 = "select * from `user_table` where user_email='$user_email'";
+    $select_query2 = "select * from `user_table` where user_mobile='$user_contact'";
+
+    $result = mysqli_query($con, $select_query);
+    $result1 = mysqli_query($con, $select_query1);
+    $result2 = mysqli_query($con, $select_query2);
+
+    $rows_count = mysqli_num_rows($result);
+    $rows_count1 = mysqli_num_rows($result1);
+    $rows_count2 = mysqli_num_rows($result2);
+
+    if ($rows_count > 0) {
+        echo "<script class='text-danger'>alert('Username aleady exist')</script>";
+    } elseif ($rows_count1) {
+        echo "<script class='text-danger'>alert('Email already exist')</script>";
+    } elseif ($rows_count2) {
+        echo "<script class='text-danger'>alert('Mobile Number already exist')</script>";
+    } elseif ($user_password != $conf_user_password) {
+        echo "<script class='text-danger'>alert('Your Password does not match')</script>";
+    } else {
+        // Insert query
+        move_uploaded_file($user_image_tmp, "./user_images/$user_image");
+        $insert_query = "insert into `user_table` (username, user_email, user_password, user_image, user_ip,user_address, user_mobile) values ('$user_username','$user_email','$hash_password','$user_image','$user_ip','$user_address','$user_contact')";
+        $sql_exe = mysqli_query($con, $insert_query);
+        if ($sql_exe) {
+            echo "<script>alert('Your Account has been created.')</script>";
+        } else {
+            die(mysqli_error($con));
+        }
+    }
+
+    // selecting cart items
+
+    $select_cart = "select * from `cart_details` where ip_address='$user_ip'";
+    $result_cart = mysqli_query($con, $select_cart);
+    $rows_count = mysqli_num_rows($result_cart);
+
+    if ($rows_count > 0) {
+        $_SESSION['username'] = $user_username;
+        echo "<script>alert('You have items in your cart')</script>";
+        echo "<script>window.open('checkout.php','_self')</script>";
+    } else {
+        echo "<script>window.open('../index.php','_self')</script>";
+    }
+
+
+}
+
+?>

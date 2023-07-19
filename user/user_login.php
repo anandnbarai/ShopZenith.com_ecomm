@@ -90,12 +90,12 @@ if (isset($_POST['user_login'])) {
             // echo "<script>alert('You have logged in Successfully')</script>";
             if ($rows_count == 1 and $rows_count1 == 0) {
                 $_SESSION['username'] = $user_username;
-                echo "<script>alert('You have logged in Successfully')</script>";
+                echo "<script>alert('You have successfully logged in')</script>";
                 echo "<script>window.open('profile.php','_self')</script>";
             } else {
                 $_SESSION['username'] = $user_username;
-                echo "<script>alert('You have logged in Successfully')</script>";
-                echo "<script>window.open('payment.php','_self')</script>";
+                echo "<script>alert('You have successfully logged in')</script>";
+                echo "<script>window.open('checkout.php','_self')</script>";
             }
         } else {
             echo "<script>alert('Invalid Credentials.')</script>";

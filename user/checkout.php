@@ -60,23 +60,13 @@ session_start();
                             <a class="nav-link" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="display.php">Products</a>
+                            <a class="nav-link" href="../display.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="user_register.php">Register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
-
-                                </sup>&nbsp;Cart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Total Price : <b>&#8377;
-
-                                </b></a>
                         </li>
                     </ul>
                     <!-- d-flex means display flex which means come in horizontal row-->

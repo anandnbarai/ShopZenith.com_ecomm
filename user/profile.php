@@ -11,7 +11,7 @@ session_start();
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Profile - ShopZenith</title>
+    <title>Welcome <?php echo ucfirst($_SESSION['username']); ?></title>
 
     <!-- Website logo -->
     <link rel="icon" type="image/x-icon" href="../img/Yellow E-commerce Shop Bag Store Logo.png">
@@ -37,6 +37,14 @@ session_start();
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .profile_img {
+            width: 75%;
+            margin: auto;
+            display: block;
+            object-fit: contain;
+        }
+    </style>
 </head>
 
 <body style="overflow-x:hidden">
@@ -78,7 +86,7 @@ session_start();
                         </li>
                     </ul>
                     <!-- d-flex means display flex which means come in horizontal row-->
-                    <form class="d-flex" action="search_product.php" method="get">
+                    <form class="d-flex" action="../search_product.php" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                             name="search_data">
                         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
@@ -117,22 +125,55 @@ session_start();
             </div>
         </nav>
 
-       
         <!-- Second Child/2nd Navbar -->
         <div class="bg-light p-2">
             <h3 class="text-center mt-2">ShopZenith.com</h3>
             <p class="text-center">Unleash Your Shopping Potential</p>
         </div>
-
-
     </div>
 
     <!-- Footer/Last child -->
+    <div class="row">
+        <div class="col-md-2 p-0 bg-dark">
+            <ul class="navbar-nav text-center bg-success" style="height: 70vh;">
+                <li class="nav-item">
+                    <a class="nav-link text-light bg-dark" aria-current="page" href="../index.php">
+                        <h4>Your Profile</h4>
+                    </a>
+                </li>
+                <li class="nav-item my-3">
+                    <img class="profile_img" src="user_images/1682052682682.png" alt="user">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="../index.php">
+                        Pending Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="../index.php">
+                        Edit Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="../index.php">
+                        Order History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="../index.php">
+                        Delete Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="logout.php">
+                        Log Out</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+
+        </div>
+    </div>
     <!-- Include footer -->
     <?php
     include("../includes/footer.php");
     ?>
-    </div>
 
 </body>
 

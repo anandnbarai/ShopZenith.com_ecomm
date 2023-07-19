@@ -215,7 +215,7 @@ session_start();
                                 }
                             }
                         } else {
-                            echo "<h2 class='text-center text-danger mt-3 mb-3' style='height: 80vh;'><b>Cart is Empty</b></h2>";
+                            echo "<h2 class='text-center text-danger mt-3 mb-3'><b>Cart is Empty</b></h2>";
                         }
                         ?>
                         </tbody>

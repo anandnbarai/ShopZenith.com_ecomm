@@ -2,6 +2,7 @@
 
 include('includes/connect.php');
 include('functions/common_function.php');
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -56,7 +57,7 @@ include('functions/common_function.php');
     </style>
 </head>
 
-<body>
+<body style="overflow-x:hidden">
     <!-- Navbar -->
     <div class="container-fluid p-0">
         <!-- First child -->
@@ -94,12 +95,33 @@ include('functions/common_function.php');
                     </ul>
                 </div>
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome Guest!</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login!</a>
-                    </li>
+                    <?php
+
+                    if (!isset($_SESSION['username'])) {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link' href='user/user_login.php'>Welcome Guest!</a>
+                                    </li>";
+                    } else {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link' href='user/profile.php'>Welcome " . ucfirst($_SESSION['username']) . "</a>
+                                    </li>";
+                    }
+
+                    ?>
+
+                    <?php
+
+                    if (!isset($_SESSION['username'])) {
+                        echo "<li class='nav-item'>
+                                    <a class='nav-link' href='user/user_login.php'>Login!</a>
+                                        </li>";
+                    } else {
+                        echo "<li class='nav-item'>
+                                    <a class='nav-link' href='user/logout.php'>Log Out</a>
+                                        </li>";
+                    }
+
+                    ?>
                 </ul>
             </div>
         </nav>
@@ -109,7 +131,7 @@ include('functions/common_function.php');
         cart();
         ?>
         <!-- Second Child/2nd Navbar -->
-        <div class="bg-light">
+        <div class="bg-light p-2">
             <h3 class="text-center mt-2">ShopZenith.com</h3>
             <p class="text-center">Unleash Your Shopping Potential </p>
         </div>
@@ -193,7 +215,7 @@ include('functions/common_function.php');
                                 }
                             }
                         } else {
-                            echo "<h2 class='text-center text-danger'><b>Cart is Empty</b></h2>";
+                            echo "<h2 class='text-center text-danger mt-3 mb-3'><b>Cart is Empty</b></h2>";
                         }
                         ?>
                         </tbody>
@@ -212,7 +234,7 @@ include('functions/common_function.php');
                             <input type='submit' class='bg-dark text-white border-0 p-3 px-3 py-2 border-0 mx-3' value='Continue Shopping' 
                             name='continue_shopping'>
                             <button class='bg-secondary text-white border-0 p-3 py-2'>
-                            <a href='checkout.php' class='text-light text-decoration-none'>Checkout</a></button>";
+                            <a href='user/checkout.php' class='text-light text-decoration-none'>Checkout</a></button>";
                         } else {
                             echo "<input type='submit' class='bg-dark text-white border-0 p-3 px-3 py-2 border-0 mx-3' value='Continue Shopping' 
                                 name='continue_shopping'>";

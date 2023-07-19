@@ -2,6 +2,7 @@
 
 include('includes/connect.php');
 include('functions/common_function.php');
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +36,7 @@ include('functions/common_function.php');
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body style="overflow-x:hidden">
     <!-- Navbar -->
     <div class="container-fluid p-0">
         <!-- First child -->
@@ -60,9 +61,6 @@ include('functions/common_function.php');
                             <a class="nav-link" href="display.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
@@ -81,32 +79,42 @@ include('functions/common_function.php');
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                             name="search_data">
                         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                        <input type="submit" value="Search" class='btn btn-outline-dark text-dark bg-light' name="search_data_product">
+                        <input type="submit" value="Search" class='btn btn-outline-dark text-dark bg-light'
+                            name="search_data_product">
                     </form>
                 </div>
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome Guest!</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login!</a>
-                    </li>
+
+                    <?php
+
+                    if (!isset($_SESSION['username'])) {
+                        echo "<li class='nav-item'>
+                                    <a class='nav-link' href='user/user_login.php'>Welcome Guest!</a>
+                                        </li>";
+                    } else {
+                        echo "<li class='nav-item'>
+                                    <a class='nav-link' href='user/profile.php'>Welcome " . ucfirst($_SESSION['username']) . "</a>
+                                        </li>";
+                    }
+
+                    ?>
+
+                    <?php
+
+                    if (!isset($_SESSION['username'])) {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link' href='user/user_login.php'>Login!</a>
+                                    </li>";
+                    } else {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link' href='user/logout.php'>Log Out</a>
+                                    </li>";
+                    }
+
+                    ?>
                 </ul>
             </div>
         </nav>
-
-        <!-- Second Child/2nd Navbar -->
-
-        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest!</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login!</a>
-                </li>
-            </ul>
-        </nav> -->
 
         <!-- Third Child-->
         <div class="bg-light">

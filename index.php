@@ -2,6 +2,7 @@
 
 include('includes/connect.php');
 include('functions/common_function.php');
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +39,7 @@ include('functions/common_function.php');
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body style="overflow-x:hidden">
     <!-- Navbar -->
     <div class="container-fluid p-0">
         <!-- First child -->
@@ -57,13 +58,10 @@ include('functions/common_function.php');
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link" aria-current="page" href="./index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="display.php">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="./display.php">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -89,12 +87,32 @@ include('functions/common_function.php');
                     </form>
                 </div>
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Welcome Guest!</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login!</a>
-                    </li>
+                    <?php
+
+                    if (!isset($_SESSION['username'])) {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link' href='user/user_login.php'>Welcome Guest!</a>
+                                    </li>";
+                    } else {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link' href='user/profile.php'>Welcome " . ucfirst($_SESSION['username']) . "</a>
+                                      </li>";
+                    }
+
+                    ?>
+                    <?php
+
+                    if (!isset($_SESSION['username'])) {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link' href='user/user_login.php'>Login!</a>
+                                    </li>";
+                    } else {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link' href='user/logout.php'>Log Out</a>
+                                    </li>";
+                    }
+
+                    ?>
                 </ul>
             </div>
 
@@ -105,22 +123,10 @@ include('functions/common_function.php');
         cart();
         ?>
         <!-- Second Child/2nd Navbar -->
-        <div class="bg-light">
+        <div class="bg-light p-2">
             <h3 class="text-center mt-2">ShopZenith.com</h3>
             <p class="text-center">Unleash Your Shopping Potential </p>
         </div>
-
-        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest!</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login!</a>
-                </li>
-            </ul>
-        </nav> -->
-
 
         <!-- third child -->
         <div class="row px-1">

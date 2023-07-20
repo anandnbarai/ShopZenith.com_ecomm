@@ -45,7 +45,11 @@ include('../functions/common_function.php');
         <div class="row d-flex align-items-center justify-content-center mt-4">
             <div class="col-lg-12 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
-
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control w-50 m-auto" name="user_username">
+                    </div>
+                    
                     <div class="form-outline mb-3">
                         <label for="user_username" class="form-label">Username</label>
                         <input type="text" id="user_username" name="user_username" class="form-control"
@@ -149,6 +153,7 @@ if (isset($_POST['user_register'])) {
         $sql_exe = mysqli_query($con, $insert_query);
         if ($sql_exe) {
             echo "<script>alert('Your Account has been created.')</script>";
+            echo "<script>window.open('user_login.php','_self')</script>";
         } else {
             die(mysqli_error($con));
         }

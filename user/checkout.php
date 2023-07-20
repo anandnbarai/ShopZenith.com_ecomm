@@ -87,7 +87,7 @@ session_start();
                                         </li>";
                     } else {
                         echo "<li class='nav-item'>
-                                    <a class='nav-link' href='profile.php'>Welcome " . ucfirst($_SESSION['username']) . "</a>
+                                    <a class='nav-link' href='profile.php'>Welcome <b class='text-white'>" . $_SESSION['username'] . "</b></a>
                                         </li>";
                     }
 

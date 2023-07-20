@@ -5,6 +5,7 @@ include('../functions/common_function.php');
 @session_start();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +104,6 @@ if (isset($_POST['user_login'])) {
     } else {
         echo "<script>alert('Invalid Credentials.')</script>";
     }
-
 }
 
 ?>

@@ -11,7 +11,9 @@ session_start();
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Welcome <?php echo ucfirst($_SESSION['username']); ?></title>
+    <title>Welcome
+        <?php echo $_SESSION['username']; ?>
+    </title>
 
     <!-- Website logo -->
     <link rel="icon" type="image/x-icon" href="../img/Yellow E-commerce Shop Bag Store Logo.png">
@@ -38,10 +40,9 @@ session_start();
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .profile_img {
-            width: 75%;
-            margin: auto;
-            display: block;
+        .edit_img {
+            width: 100%;
+            height: 100px;
             object-fit: contain;
         }
     </style>
@@ -103,8 +104,9 @@ session_start();
                                     </li>";
                     } else {
                         echo "<li class='nav-item'>
-                                <a class='nav-link' href='profile.php'>Welcome " . ucfirst($_SESSION['username']) . "</a>
-                                      </li>";
+                                <a class='nav-link' href='profile.php'>
+                                Welcome <b class='text-white'>" . $_SESSION['username'] . "</b></a>
+                                    </li>";
                     }
 
                     ?>
@@ -135,29 +137,43 @@ session_start();
     <!-- Footer/Last child -->
     <div class="row">
         <div class="col-md-2 p-0 bg-dark">
-            <ul class="navbar-nav text-center bg-success" style="height: 70vh;">
+            <ul class="navbar-nav text-center bg-success" style="height: 90vh;">
                 <li class="nav-item">
                     <a class="nav-link text-light bg-dark" aria-current="page" href="../index.php">
                         <h4>Your Profile</h4>
                     </a>
                 </li>
-                <li class="nav-item my-3">
-                    <img class="profile_img" src="user_images/1682052682682.png" alt="user">
-                </li>
+                <?php
+
+                $username = $_SESSION['username'];
+                $user_image = "select * from `user_table` where username = '$username'";
+                $result_img = mysqli_query($con, $user_image);
+                $fetch_img = mysqli_fetch_array($result_img);
+                $user_image = $fetch_img['user_image'];
+
+                echo "<li class='nav-item my-3'>
+                        <img style='width: 200px; margin: auto; display: block; object-fit: contain;' src='user_images/$user_image' alt='userimage'>
+                        </li>";
+                ?>
+
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="../index.php">
+                    <a class="nav-link text-light" aria-current="page" href="profile.php">
                         Pending Orders</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="../index.php">
+                    <a class="nav-link text-light" aria-current="page" href="profile.php?edit_account">
                         Edit Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="../index.php">
+                    <a class="nav-link text-light" aria-current="page" href="profile.php?my_orders">
                         Order History</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" aria-current="page" href="../index.php">
+                    <a class="nav-link text-light" aria-current="page" href="profile.php?change_password">
+                        Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="profile.php?delet_account">
                         Delete Account</a>
                 </li>
                 <li class="nav-item">
@@ -166,8 +182,18 @@ session_start();
                 </li>
             </ul>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 text-center">
+            <?php
+            get_order_details();
 
+            if (isset($_GET['edit_account'])) {
+                include('edit_account.php');
+            }
+
+            if (isset($_GET['change_password'])) {
+                include('change_password.php');
+            }
+            ?>
         </div>
     </div>
     <!-- Include footer -->

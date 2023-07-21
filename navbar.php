@@ -53,21 +53,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                            <a class="nav-link text-white" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
+                            <a class="nav-link text-white" href="#">Products</a>
                         </li>
+                        <?php
+
+                        if (!isset($_SESSION['username'])) {
+                            echo "<li class='nav-item'>
+                                    <a class='nav-link text-white' href='user/user_register.php'>Register</a></a>
+                        </li>";
+                        }
+
+                        ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
+                            <a class="nav-link text-white" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
                                     <?php cart_item(); ?>
                                 </sup>&nbsp;Cart</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total Price :
+                            <a class="nav-link text-white" href="#">Total Price :
                                 <?php total_cart_price(); ?>
                             </a>
                         </li>
@@ -75,7 +81,8 @@
                         <!-- d-flex means display flex which means come in horizontal row-->
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <input type="submit" value="Search" class='btn btn-outline-dark text-dark bg-light' name="search_data_product">
+                            <input type="submit" value="Search" class='btn btn-outline-dark text-dark bg-light'
+                                name="search_data_product">
                         </form>
                 </div>
             </div>

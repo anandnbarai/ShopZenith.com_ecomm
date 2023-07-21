@@ -55,24 +55,30 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link text-white" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="display.php">Products</a>
+                            <a class="nav-link text-white" href="display.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="user/user_register.php">Register</a>
+                            <a class="nav-link text-white" href="#">Contact</a>
                         </li>
+                        <?php
+
+                        if (!isset($_SESSION['username'])) {
+                            echo "<li class='nav-item'>
+                                    <a class='nav-link text-white' href='user/user_register.php'>Register</a></a>
+                                </li>";
+                        }
+
+                        ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
+                            <a class="nav-link text-white" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
                                     <?php cart_item(); ?>
                                 </sup>&nbsp;Cart</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total Price : <b>&#8377;
+                            <a class="nav-link text-white" href="#">Total Price : <b class='text-white'>&#8377;
                                     <?php total_cart_price(); ?>
                                 </b></a>
                         </li>
@@ -91,11 +97,11 @@ session_start();
 
                     if (!isset($_SESSION['username'])) {
                         echo "<li class='nav-item'>
-                            <a class='nav-link' href='user/user_login.php'>Welcome Guest!</a>
+                            <a class='nav-link text-white' href='user/user_login.php'>Welcome Guest!</a>
                                 </li>";
                     } else {
                         echo "<li class='nav-item'>
-                            <a class='nav-link' href='user/profile.php'>Welcome " . ucfirst($_SESSION['username']) . "</a>
+                            <a class='nav-link text-white' href='user/profile.php'>Welcome <b class='text-white'>" . $_SESSION['username'] . "</b></a>
                                 </li>";
                     }
 
@@ -105,11 +111,11 @@ session_start();
 
                     if (!isset($_SESSION['username'])) {
                         echo "<li class='nav-item'>
-                                <a class='nav-link' href='user/user_login.php'>Login!</a>
+                                <a class='nav-link text-white' href='user/user_login.php'>Login!</a>
                                     </li>";
                     } else {
                         echo "<li class='nav-item'>
-                                <a class='nav-link' href='user/logout.php'>Log Out</a>
+                                <a class='nav-link text-white' href='user/logout.php'>Log Out</a>
                                     </li>";
                     }
 
@@ -124,10 +130,10 @@ session_start();
         <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest!</a>
+                    <a class="nav-link text-white" href="#">Welcome Guest!</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login!</a>
+                    <a class="nav-link text-white" href="#">Login!</a>
                 </li>
             </ul>
         </nav> -->
@@ -153,10 +159,10 @@ session_start();
                 <!-- col end -->
             </div>
             <!-- SideNav -->
-            <div class="col-md-2 bg-secondary p-0 bg-success">
+            <div class="col-md-2 bg-secondary p-0 bg-secondary">
                 <ul class="navbar-nav me-auto text-center">
                     <li class="nav-item text-light bg-dark">
-                        <a href="#" class="nav-link text-light">
+                        <a href="#" class="nav-link text-white text-light">
                             <h4>Assosiated Brands</h4>
                         </a>
                     </li>
@@ -166,7 +172,7 @@ session_start();
                 </ul>
                 <ul class="navbar-nav me-auto text-center">
                     <li class="nav-item text-light bg-dark">
-                        <a href="#" class="nav-link text-light">
+                        <a href="#" class="nav-link text-white text-light">
                             <h4>Categories</h4>
                         </a>
                     </li>

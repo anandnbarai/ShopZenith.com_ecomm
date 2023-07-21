@@ -1,7 +1,7 @@
 <?php
 
 //! including connection file
-include('./includes/connect.php');
+// include('./includes/connect.php');
 
 
 //! getting Products
@@ -283,7 +283,7 @@ function viewdetails()
     <!-- Related Cards -->
     <div class='row'>
         <div class='col-md-12'>
-            <h4 class='text-center text-info'>Related Products</h4>
+            <h4 class='text-center text-dark'>Related Products</h4>
         </div>
         <div class='col-md-6'>
             <img src='./admin/product_images/$product_image2' class='card-img-top'>
@@ -291,6 +291,7 @@ function viewdetails()
         <div class='col-md-6'>
             <img src='./admin/product_images/$product_image3' class='card-img-top'>
         </div>
+        <p class='card-text'>$product_description</p>
     </div>
 </div>";
                 }
@@ -386,4 +387,42 @@ function total_cart_price()
     }
     echo $total_price;
 }
+
+
+//! get user order details
+function get_order_details()
+{
+    global $con;
+    $username = $_SESSION['username'];
+
+    $get_details = "select * from `user_table` where username = '$username'";
+    $result_query = mysqli_query($con, $get_details);
+
+    while ($row = mysqli_fetch_array($result_query)) {
+        $user_id = $row['user_id'];
+
+        if (!isset($_GET['edit_account'])) {
+            if (!isset($_GET['my_orders'])) {
+                if (!isset($_GET['delete_account'])) {
+                    if (!isset($_GET['change_password'])) {
+                        $get_orders = "select * from `user_orders` where user_id = $user_id and order_status ='pending'";
+                        $result_order = mysqli_query($con, $get_orders);
+                        $row_count = mysqli_num_rows($result_order);
+                        if ($row_count > 0) {
+                            echo "<h3 class='text-center mt-5 mb-2'>You have <i class='fa-solid fa-cart-shopping'></i><sup>
+                            $row_count </sup>pending orders.</h3>
+                        <h5 class='text-center'>
+                        <a href='profile.php?my_orders' class='text-dark'>Order Details</a></h5>";
+                        } else {
+                            echo "<h3 class='text-center mt-5 mb-2'>You do not have any pending orders</h3>
+                        <h5 class='text-center'>
+                        <a href='../index.php' class='text-dark'>Explore Products</a></h5>";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 ?>

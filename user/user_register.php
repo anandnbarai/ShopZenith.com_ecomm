@@ -37,7 +37,12 @@ include('../functions/common_function.php');
     </style>
 </head>
 
-<body style="overflow-x:hidden">
+<body>
+    
+    <div class="bg-light p-2">
+        <h3 class="text-center mt-2">ShopZenith.com</h3>
+        <p class="text-center">Unleash Your Shopping Potential </p>
+    </div>
 
     <div class="container-fluid">
         <h2 class="text-center my-3">New User Registration</h2>
@@ -45,11 +50,8 @@ include('../functions/common_function.php');
         <div class="row d-flex align-items-center justify-content-center mt-4">
             <div class="col-lg-12 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
-                    <div class="form-outline mb-4">
-                        <label class="form-label">Username</label>
-                        <input type="text" class="form-control w-50 m-auto" name="user_username">
-                    </div>
-                    
+
+
                     <div class="form-outline mb-3">
                         <label for="user_username" class="form-label">Username</label>
                         <input type="text" id="user_username" name="user_username" class="form-control"
@@ -175,5 +177,7 @@ if (isset($_POST['user_register'])) {
 
 
 }
+
+include("../includes/footer.php");
 
 ?>

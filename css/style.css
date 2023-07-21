@@ -15,6 +15,10 @@ height: 200px;
 object-fit: contain;
 }
 
+.profile_img{
+    width: 25px;
+    height: 25px;
+}
 /* .admin_image{
     width: 100px;
     object-fit: contain;

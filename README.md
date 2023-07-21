@@ -1,5 +1,5 @@
 # ShopZenith.com - E-Commerce Website using PHP and MySQL
-The *ShopZenith.com* is a ecommerce website, developed using *php* in backend, mysql in database and used html and bootstrap in frontend.
+The *ShopZenith.com* is a ecommerce website, developed using *php* in backend, `mysql` in database and used html and bootstrap in frontend.
 
 ## Technologies
 - [PHP](https://www.php.net/docs.php)

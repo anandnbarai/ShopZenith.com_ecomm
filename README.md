@@ -7,3 +7,14 @@ The *ShopZenith.com* is a ecommerce website, developed using *php* in backend, m
 - [MySQL](https://www.mysql.com)
 - [HTML](https://www.w3schools.com/html/default.asp)
 - [CSS](https://www.w3schools.com/css/default.asp)
+
+## Site Functions
+<ul>
+  <li>New User Registration</li>
+  <li>User Login & Logout</li>
+  <li>User Edit Profile</li>
+  <li>Change Password</li>
+  <li>Delete Account</li>
+  <li>Order History</li>
+  <li>Add to Cart</li>
+</ul>

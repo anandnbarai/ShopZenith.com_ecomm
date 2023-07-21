@@ -38,6 +38,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/style.css">
     <style>
         .edit_img {
@@ -137,7 +138,7 @@ session_start();
     <!-- Footer/Last child -->
     <div class="row">
         <div class="col-md-2 p-0 bg-dark">
-            <ul class="navbar-nav text-center bg-success" style="height: 90vh;">
+            <ul class="navbar-nav text-center bg-secondary" style="height: 90vh;">
                 <li class="nav-item">
                     <a class="nav-link text-light bg-dark" aria-current="page" href="../index.php">
                         <h4>Your Profile</h4>
@@ -158,36 +159,40 @@ session_start();
 
                 <li class="nav-item">
                     <a class="nav-link text-light" aria-current="page" href="profile.php">
-                        Pending Orders</a>
+                    <i class="bi bi-handbag"></i> Pending Orders</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" aria-current="page" href="profile.php?edit_account">
-                        Edit Account</a>
+                        <i class="bi bi-pencil-square"></i> Edit Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" aria-current="page" href="profile.php?my_orders">
-                        Order History</a>
+                    <i class="bi bi-handbag-fill"></i> Order History</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" aria-current="page" href="profile.php?change_password">
-                        Change Password</a>
+                    <i class="bi bi-file-earmark-lock"></i> Change Password</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" aria-current="page" href="profile.php?delet_account">
-                        Delete Account</a>
+                    <i class="bi bi-person-fill-x"></i> Delete Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" aria-current="page" href="logout.php">
-                        Log Out</a>
+                    <i class="bi bi-box-arrow-left"></i> Log Out</a>
                 </li>
             </ul>
         </div>
-        <div class="col-md-10 text-center">
+        <div class="col-md-10 text-center mt-3">
             <?php
             get_order_details();
 
             if (isset($_GET['edit_account'])) {
                 include('edit_account.php');
+            }
+
+            if (isset($_GET['my_orders'])) {
+                include('user_orders.php');
             }
 
             if (isset($_GET['change_password'])) {

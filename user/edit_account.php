@@ -59,7 +59,7 @@ if (isset($_GET['edit_account'])) {
 </head>
 
 <body>
-    <h2 class="mt-3 mb-4">Edit Account</h2>
+    <h2 class="mb-4">Edit Account</h2>
 
     <form action="" method="post" enctype="multipart/form-data">
         <div class="form-outline mb-4">

@@ -11,7 +11,7 @@ session_start();
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>ShopZenith.com - Unleash your shopping potential</title>
+    <title>Search | ShopZenith - Unleash your shopping potential</title>
     <link rel="icon" type="image/x-icon" href="img/Yellow E-commerce Shop Bag Store Logo.png">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
@@ -73,14 +73,16 @@ session_start();
 
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
+                            <a class="nav-link text-white" href="cart.php"><i
+                                    class="fa-solid fa-cart-shopping"></i><sup>
                                     <?php cart_item(); ?>
                                 </sup>&nbsp;Cart</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Total Price : <b class='text-white'></b>&#8377;
-                                    <?php total_cart_price(); ?>
-                                </b></a>
+                                <?php total_cart_price(); ?>
+                                </b>
+                            </a>
                         </li>
                     </ul>
                     <!-- d-flex means display flex which means come in horizontal row-->

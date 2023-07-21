@@ -34,9 +34,9 @@ $user_id = $row_fetch['user_id'];
             $invoice_number = $row_orders['invoice_number'];
             $order_status = $row_orders['order_status'];
 
-            if($order_status=='pending'){
-                $order_status='Incomplete';
-            }else{
+            if ($order_status == 'pending') {
+                $order_status = 'Incomplete';
+            } else {
                 $order_status = 'Complete';
             }
             $order_date = $row_orders['order_date'];
@@ -46,11 +46,19 @@ $user_id = $row_fetch['user_id'];
                 <td>$total_products</td>
                 <td>$invoice_number</td>
                 <td>$order_date</td>
-                <td>$order_status</td>
-                <td><a href='confirm_payment.php' class='text-white'>Confirm</a></td>
-                </tr>";
+                <td>$order_status</td>";
+            ?>
+            <?php
+
+            if ($order_status == 'Complete') {
+                echo "<td>Amount Paid</td>";
+            } else {
+                echo "<td><a href='confirm_payment.php?order_id=$oid' class='text-white'>Confirm</a>
+                    </td></tr>";
+            }
             $num++;
         }
+
         ?>
     </tbody>
 </table>

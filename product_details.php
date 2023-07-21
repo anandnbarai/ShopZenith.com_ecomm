@@ -11,7 +11,7 @@ session_start();
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>ShopZenith.com - Unleash your shopping potential</title>
+    <title>All Product | ShopZenith - Unleash your shopping potential</title>
     <link rel="icon" type="image/x-icon" href="img/Yellow E-commerce Shop Bag Store Logo.png">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>

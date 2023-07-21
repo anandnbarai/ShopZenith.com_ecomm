@@ -80,7 +80,7 @@ if (isset($_GET['edit_account'])) {
         <div class="form-outline mb-4">
             <input type="text" class="form-control w-50 m-auto" value="<?php echo $user_mobile; ?>" name="user_mobile">
         </div>
-        <input type="submit" class="btn btn-dark py-2 border-0" name="update" value="Update">
+        <input type="submit" class="btn btn-dark" name="update" value="Update">
     </form>
 </body>
 

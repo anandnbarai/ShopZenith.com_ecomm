@@ -10,6 +10,7 @@ The *ShopZenith.com* is a ecommerce website, developed using *php* in backend, m
 
 ## Site Functions
 <ul>
+  ## User
   <li>New User Registration</li>
   <li>User Login & Logout</li>
   <li>User Edit Profile</li>

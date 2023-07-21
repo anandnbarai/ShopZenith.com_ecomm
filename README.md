@@ -22,3 +22,10 @@ The *ShopZenith.com* is a ecommerce website, developed using *php* in backend, m
   <li>Update Cart</li>
   <li>Order Place</li>
 </ul>
+
+### Admin
+<ul>
+  <li>Add Brands</li>
+  <li>Add Categories</li>
+  <li>Add Products</li>
+</ul>

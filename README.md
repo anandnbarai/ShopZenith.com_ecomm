@@ -17,4 +17,6 @@ The *ShopZenith.com* is a ecommerce website, developed using *php* in backend, m
   <li>Delete Account</li>
   <li>Order History</li>
   <li>Add to Cart</li>
+  <li>Update Cart</li>
+  <li>Order Place</li>
 </ul>

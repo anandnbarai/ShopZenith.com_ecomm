@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Admin Dashbaord - ShopZenith.com</title>
+    <title>Admin Dashbaord | ShopZenith - Unleash your shopping potential</title>
     <link rel="icon" type="image/x-icon" href="../img/Yellow E-commerce Shop Bag Store Logo.png">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
@@ -40,17 +40,17 @@
     </style>
 </head>
 
-<body>
+<body style="overflow-x:hidden">
     <!-- navbar -->
     <div class="container-fluid p-0">
         <!-- First Child -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
                 <img src="../img/Yellow E-commerce Shop Bag Store Logo.png" class="logo">
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Welcome Guest!</a>
+                            <a href="" class="nav-link text-white">Welcome Admin!</a>
                         </li>
                     </ul>
                 </nav>
@@ -58,7 +58,7 @@
         </nav>
 
         <!-- Second Child -->
-        <div class="bg-light">
+        <div class="bg-light mt-2">
             <h3 class="text-center p-2">
                 Manage Details
             </h3>
@@ -72,21 +72,29 @@
                     <p class="text-light text-center">Admin Name</p>
                 </div>
                 <div class="button text-center">
-                    <!-- button*10>a.nav-link.text-light.bg-info.my-1 -->
-                    <button class="px-1"><a href="in_pro.php" class="nav-link text-dark bg-info my-1">Insert
+                    <!-- button*10>a.nav-link.text-light.bg-dark text-white.my-1 -->
+                    <button class="px-1"><a href="in_pro.php" class="nav-link text-dark bg-dark text-white my-1">Insert
                             Products</a></button>
-                    <button class="px-1"><a href="" class="nav-link text-dark bg-info my-1">View Prodcuts</a></button>
-                    <button class="px-1"><a href="index.php?in_cat" class="nav-link text-dark bg-info my-1">Insert
+                    <button class="px-1"><a href="" class="nav-link text-dark bg-dark text-white my-1">View
+                            Prodcuts</a></button>
+                    <button class="px-1"><a href="index.php?in_cat"
+                            class="nav-link text-dark bg-dark text-white my-1">Insert
                             Categories</a></button>
-                    <button class="px-1"><a href="" class="nav-link text-dark bg-info my-1">View
+                    <button class="px-1"><a href="" class="nav-link text-dark bg-dark text-white my-1">View
                             Categories</a></button>
-                    <button class="px-1"><a href="index.php?in_brand" class="nav-link text-dark bg-info my-1">Insert
+                    <button class="px-1"><a href="index.php?in_brand"
+                            class="nav-link text-dark bg-dark text-white my-1">Insert
                             Brands</a></button>
-                    <button class="px-1"><a href="" class="nav-link text-dark bg-info my-1">View Brands</a></button>
-                    <button class="px-1"><a href="" class="nav-link text-dark bg-info my-1">All Orders</a></button>
-                    <button class="px-1"><a href="" class="nav-link text-dark bg-info my-1">All Payments</a></button>
-                    <button class="px-1"><a href="" class="nav-link text-dark bg-info my-1">List Users</a></button>
-                    <button class="px-1"><a href="" class="nav-link text-dark bg-info my-1">Logout!</a></button>
+                    <button class="px-1"><a href="" class="nav-link text-dark bg-dark text-white my-1">View
+                            Brands</a></button>
+                    <button class="px-1"><a href="" class="nav-link text-dark bg-dark text-white my-1">All
+                            Orders</a></button>
+                    <button class="px-1"><a href="" class="nav-link text-dark bg-dark text-white my-1">All
+                            Payments</a></button>
+                    <button class="px-1"><a href="" class="nav-link text-dark bg-dark text-white my-1">List
+                            Users</a></button>
+                    <button class="px-1"><a href=""
+                            class="nav-link text-dark bg-dark text-white my-1">Logout!</a></button>
                 </div>
             </div>
 
@@ -108,17 +116,12 @@
 
                 ?>
             </div>
-            <div class="container my-5 px-5">
-                <!-- footer -->
-                <div class="bg-info p-3 text-center footer">
-                    <p>Copyright&#169; 2023 ShopZenith.com - Unleash Your Shopping Potential, All Rights Reserved |
-                        Designed
-                        By
-                        : <a href="https://www.linkedin.com/in/anandnbarai/"
-                            style="text-decoration: none; color: black;">
-                            Anand Barai</a></p>
-                </div>
-            </div>
+            
+            <?php
+
+            include("../includes/footer.php");
+            
+            ?>
 </body>
 
 </html>

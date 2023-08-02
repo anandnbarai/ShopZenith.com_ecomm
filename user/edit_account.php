@@ -71,6 +71,7 @@ if (isset($_GET['edit_account'])) {
         </div>
         <div class="form-outline mb-4 d-flex w-50 m-auto">
             <input type="file" class="form-control m-auto" name="user_image">
+            
             <img src="user_images/<?php echo $user_image ?>" class="edit_img">
         </div>
         <div class="form-outline mb-4">

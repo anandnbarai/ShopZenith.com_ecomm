@@ -30,7 +30,7 @@ if (isset($_POST['insert_brand'])) {
             aria-describedby="basic-addon1">
     </div>
     <div class="input-group w-10 mb-2 m-auto">
-        <input type="submit" class="bg-info bordero-0 p-2 my-3" value="Insert Brands" name="insert_brand"
+        <input type="submit" class="bg-dark text-white border-0 p-2 my-3" value="Insert Brands" name="insert_brand"
             aria-label="Username" aria-describedby="basic-addon1">
     </div>
 </form>

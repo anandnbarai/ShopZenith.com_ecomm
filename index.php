@@ -11,7 +11,7 @@ session_start();
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home |ShopZenith - Unleash your shopping potential</title>
+    <title>Home | ShopZenith - Unleash your shopping potential</title>
 
     <!-- Website logo -->
     <link rel="icon" type="image/x-icon" href="img/Yellow E-commerce Shop Bag Store Logo.png">
@@ -76,7 +76,8 @@ session_start();
 
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
+                            <a class="nav-link text-white" href="cart.php"><i
+                                    class="fa-solid fa-cart-shopping"></i><sup>
                                     <?php cart_item(); ?>
                                 </sup>&nbsp;Cart</a>
                         </li>
@@ -181,7 +182,9 @@ session_start();
         <!-- Footer/Last child -->
         <!-- Include footer -->
         <?php
+ 
         include("./includes/footer.php");
+        
         ?>
     </div>
 

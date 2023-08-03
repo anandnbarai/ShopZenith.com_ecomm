@@ -21,6 +21,7 @@ The *ShopZenith.com* is a ecommerce website, developed using `php` in backend, `
   <li>Add to Cart</li>
   <li>Update Cart</li>
   <li>Order Place</li>
+  <li>Display Product, Category & Brand added by Admin</li>
 </ul>
 
 ### Admin
@@ -28,4 +29,10 @@ The *ShopZenith.com* is a ecommerce website, developed using `php` in backend, `
   <li>Add Brands</li>
   <li>Add Categories</li>
   <li>Add Products</li>
+  <li>View & Delete User</li>
+  <li>View & Edit Products</li>
+  <li>View, Edit & Delete Brands</li>
+  <li>View, Edit & Delete Category</li>
+  <li>View & Delete Payment History</li>
+  <li>View & Delete Order History</li>
 </ul>

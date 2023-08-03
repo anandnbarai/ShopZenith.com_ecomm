@@ -16,20 +16,20 @@ if (isset($_POST['insert_cat'])) {
         $result = mysqli_query($con, $insert_query);
 
         if ($result) {
-            echo "<script>alert('category has been insterted succefully')</script>";
+            echo "<script>alert('Category insterted succefully')</script>";
         }
     }
 }
 ?>
 
-<h2 class="text-center">Insert Categories</h2>
+<h2 class="text-center">Insert Category</h2>
 <form action="" method="post" class="mb-2">
-    <div class="input-group w-90 mb-2">
+    <div class="input-group w-90 mt-3 mb-2">
         <span class="input-group-text bg-info" id="basic-addon1"><i class="fa-solid fa-receipt"></i></span>
         <input type="text" class="form-control" placeholder="Insert Cantegories" name="cat_title"
             aria-label="cantegories" aria-describedby="basic-addon1">
     </div>
     <div class="input-group w-10 mb-2 m-auto">
-        <input type="submit" class="bg-dark text-white border-0 p-2 my-3" value="Insert Cantegories" name="insert_cat" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="submit" class="bg-dark text-white border-0 p-2 my-3" value="Insert Cantegory" name="insert_cat" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 </form>

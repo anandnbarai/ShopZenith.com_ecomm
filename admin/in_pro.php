@@ -32,7 +32,7 @@ if (isset($_POST['insert_product'])) {
         $result_query = mysqli_query($con, $insert_products);
 
         if ($result_query) {
-            echo "<script>alert('Succefully Inserted the Product')</script>";
+            echo "<script>alert('Product inserted succefully')</script>";
         }
     }
 }

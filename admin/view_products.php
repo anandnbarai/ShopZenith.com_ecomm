@@ -6,7 +6,6 @@
             <th>Product Title</th>
             <th>Product Image</th>
             <th>Product Price</th>
-            <th>Total Sold</th>
             <th>Status</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -32,26 +31,15 @@
                 <td>
                     <?php echo $product_title; ?>
                 </td>
-                <td><img src='./product_images/<?php echo $product_image; ?>' class='product_image'></td>
+                <td><img src='product_images/<?php echo $product_image; ?>' class='product_image'></td>
                 <td>&#8377;
                     <?php echo $product_price; ?>
-                </td>
-                <td>
-                    <?php
-
-                    $get_count = "select * from `orders_pending` where product_id = $product_id";
-                    $result_count = mysqli_query($con, $get_count);
-                    $rows_count = mysqli_num_rows($result_count);
-
-                    echo $rows_count;
-
-                    ?>
                 </td>
                 <td>
                     <?php echo $status; ?>
                 </td>
                 <td><a href='index.php?edit_products=<?php echo $product_id; ?>' class='text-white'><i class='fa-solid fa-pen-to-square'></i></a></td>
-                <td><a href='index.php?delete_products=<?php echo $product_id; ?>' class='text-white'><i class='fa-solid fa-trash'></i></a></td>
+                <td><a href='index.php?delete_products=<?php echo $product_id; ?>' class='text-white' onclick="return confirm('Are You Sure?')"><i class='fa-solid fa-trash'></i></a></td>
             </tr>
             <?php
             $num++;

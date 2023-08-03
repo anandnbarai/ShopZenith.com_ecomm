@@ -2,6 +2,11 @@
 
 include('../includes/connect.php');
 include('../functions/common_function.php');
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    echo "<script>window.open('admin_login.php','_self')</script>";
+}
 
 ?>
 <!DOCTYPE html>
@@ -45,7 +50,13 @@ include('../functions/common_function.php');
         }
 
         .product_image {
-            width: 10%;
+            width: 100px;
+            /* width: 10%; */
+            object-fit: contain;
+        }
+
+        .user_image {
+            width: 100px;
             object-fit: contain;
         }
     </style>
@@ -64,11 +75,20 @@ include('../functions/common_function.php');
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="" class="nav-link text-white">Welcome Admin!</a>
-                    </li>
+                    <?php
+
+                    if (!isset($_SESSION['username'])) {
+                        echo "<li class='nav-item'>
+                                <a class='nav-link text-white' href='admin_login.php'>Welcome Guest!</a>
+                            </li>";
+                    } else {
+                        echo "<li class='nav-item'>
+                               <a class='nav-link text-white' href='index.php?view_products'>Welcome <b class='text-white'>" . $_SESSION['username'] . "</b></a></li>";
+                    }
+
+                    ?>
                     <li class='nav-item'>
-                        <a class='nav-link text-white' href='user/logout.php'>Log Out</a>
+                        <a class='nav-link text-white' href='logout.php'>Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -88,11 +108,8 @@ include('../functions/common_function.php');
 
         <!-- third child -->
         <div class="row">
-            <div class="col-md-12 bg-secondary p-1 d-flex me-auto align-items-center">
-                <div class="p-3">
-                    <a href="#"><img src="../img/client-img.png" class="admin_image"></img></a>
-                    <p class="text-light text-center">Admin Name</p>
-                </div>
+            <div class="col-md-12 bg-secondary p-1 me-auto align-items-center">
+
                 <div class="button text-center p-5">
                     <!-- button*10>a.nav-link.text-light.bg-dark text-white. -->
                     <button class=""><a href="index.php?in_pro" class="nav-link text-dark bg-dark text-white">Insert
@@ -101,17 +118,17 @@ include('../functions/common_function.php');
                             View Prodcuts</a></button>
                     <button><a href="index.php?in_cat" class="nav-link text-dark bg-dark text-white ">
                             Insert Category</a></button>
-                    <button><a href="" class="nav-link text-dark bg-dark text-white ">
+                    <button><a href="index.php?view_category" class="nav-link text-dark bg-dark text-white ">
                             View Category</a></button>
                     <button><a href="index.php?in_brand" class="nav-link text-dark bg-dark text-white ">
                             Insert Brand</a></button>
-                    <button><a href="" class="nav-link text-dark bg-dark text-white ">View
+                    <button><a href="index.php?view_brand" class="nav-link text-dark bg-dark text-white ">View
                             Brand</a></button>
-                    <button><a href="" class="nav-link text-dark bg-dark text-white ">All
+                    <button><a href="index.php?all_orders" class="nav-link text-dark bg-dark text-white ">All
                             Orders</a></button>
-                    <button><a href="" class="nav-link text-dark bg-dark text-white ">All
+                    <button><a href="index.php?all_payments" class="nav-link text-dark bg-dark text-white ">All
                             Payments</a></button>
-                    <button><a href="" class="nav-link text-dark bg-dark text-white ">List
+                    <button><a href="index.php?all_users" class="nav-link text-dark bg-dark text-white ">List
                             Users</a></button>
                 </div>
             </div>
@@ -138,6 +155,59 @@ include('../functions/common_function.php');
                 if (isset($_GET['edit_products'])) {
                     include('edit_products.php');
                 }
+
+                if (isset($_GET['delete_products'])) {
+                    include('delete_product.php');
+                }
+
+                if (isset($_GET['view_category'])) {
+                    include('view_category.php');
+                }
+
+                if (isset($_GET['view_brand'])) {
+                    include('view_brand.php');
+                }
+
+                if (isset($_GET['edit_category'])) {
+                    include('edit_category.php');
+                }
+
+                if (isset($_GET['edit_brand'])) {
+                    include('edit_brand.php');
+                }
+
+                if (isset($_GET['delete_category'])) {
+                    include('delete_category.php');
+                }
+
+                if (isset($_GET['delete_brand'])) {
+                    include('delete_brand.php');
+                }
+
+                if (isset($_GET['all_orders'])) {
+                    include('all_orders.php');
+                }
+
+                if (isset($_GET['delete_order'])) {
+                    include('delete_order.php');
+                }
+
+                if (isset($_GET['all_payments'])) {
+                    include('all_payments.php');
+                }
+
+                if (isset($_GET['delete_payment'])) {
+                    include('delete_payment.php');
+                }
+
+                if (isset($_GET['all_users'])) {
+                    include('all_users.php');
+                }
+
+                if (isset($_GET['delete_user'])) {
+                    include('delete_user.php');
+                }
+
                 ?>
             </div>
 

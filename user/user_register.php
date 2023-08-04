@@ -10,7 +10,7 @@ include('../functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopZenith - User Regiteration</title>
+    <title>User Regiteration | ShopZenith - Unleash your shopping potential</title>
 
     <link rel="icon" type="image/x-icon" href="../img/Yellow E-commerce Shop Bag Store Logo.png">
     <!-- Boostrap CSS Link -->
@@ -34,21 +34,46 @@ include('../functions/common_function.php');
         textarea {
             resize: none;
         }
+
+        .logo {
+            width: 3%;
+            height: 2%;
+        }
+
+        .reg_image {
+            width: 600px;
+            object-fit: contain;
+        }
     </style>
 </head>
 
 <body>
-    
-    <div class="bg-light p-2">
-        <h3 class="text-center mt-2">ShopZenith.com</h3>
-        <p class="text-center">Unleash Your Shopping Potential </p>
-    </div>
 
+    <nav class="navbar navbar-expand-lg navbar-dark text-white bg-dark">
+        <div class="container-fluid">
+            <img src="../img/Yellow E-commerce Shop Bag Store Logo.png" class="logo">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" href="../index.php">Home</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="" class="nav-link text-white">Welcome User!</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+  
     <div class="container-fluid">
         <h2 class="text-center my-3">New User Registration</h2>
 
         <div class="row d-flex align-items-center justify-content-center mt-4">
-            <div class="col-lg-12 col-xl-6">
+            <div class="col-lg-6 col-xl-5">
+                <img src="../img/Wavy_Tech-28_Single-10.jpg" alt="Register Image" class="reg_image">
+            </div>
+            <div class="col-lg-6 col-xl-5 mt-5">
                 <form action="" method="post" enctype="multipart/form-data">
 
 

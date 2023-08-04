@@ -175,7 +175,7 @@ function get_unique_brands()
 function getbrands()
 {
     global $con;
-    $select_brands = "select * from `brands`";
+    $select_brands = "select * from `brands` order by rand() LIMIT 0,10";
     $result_brands = mysqli_query($con, $select_brands);
     while ($row_data = mysqli_fetch_assoc($result_brands)) {
         $brand_title = $row_data['brand_title'];
@@ -190,7 +190,7 @@ function getbrands()
 function getcategory()
 {
     global $con;
-    $select_categories = "select * from `categories`";
+    $select_categories = "select * from `categories` order by rand() LIMIT 0,10";
     $result_categories = mysqli_query($con, $select_categories);
 
     while ($row_data = mysqli_fetch_assoc($result_categories)) {

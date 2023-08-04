@@ -32,6 +32,12 @@ include('../functions/common_function.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
+    <style>
+        .user_image {
+            width: 500px;
+            object-fit: contain;
+        }
+    </style>
 </head>
 
 <body style="overflow-x:hidden">
@@ -39,7 +45,10 @@ include('../functions/common_function.php');
         <h2 class="text-center my-3">User Login</h2>
 
         <div class="row d-flex align-items-center justify-content-center mt-4">
-            <div class="col-lg-12 col-xl-6">
+            <div class="col-lg-6 col-xl-5">
+                <img src="user_images/6300830.jpg" alt="Register Image" class="user_image">
+            </div>
+            <div class="col-lg-6 col-xl-6">
                 <form action="" method="post" enctype="multipart/form-data">
 
                     <div class="form-outline mb-3">
@@ -55,8 +64,7 @@ include('../functions/common_function.php');
                     </div>
 
                     <div>
-                        <input type="submit" class="btn btn-dark mb-2" value="Login"
-                            name="user_login" />
+                        <input type="submit" class="btn btn-dark mb-2" value="Login" name="user_login" />
                         <p class="small fw-bold">Don't have an Account? <a href="user_register.php"
                                 class="text-danger">Register Here!</a></p>
                     </div>
@@ -105,5 +113,5 @@ if (isset($_POST['user_login'])) {
         echo "<script>alert('Invalid Credentials.')</script>";
     }
 }
-        
+
 ?>

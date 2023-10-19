@@ -144,6 +144,5 @@ include('includes/connect.php');
         ?>
     </div>
 
-</body>
-
+</body>
 </html>
